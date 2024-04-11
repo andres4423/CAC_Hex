@@ -1,0 +1,37 @@
+
+{
+  "name": "cac",
+  "version": "1.0.0",
+  "description": "Cac",
+  "main": "./build/cac.js",
+  "scripts": {
+    "dev": "ts-node-dev --env-file=env/.development.env src/cac.ts",
+    "build": "rm -rf ./build && tsc",
+    "lint": "ts-standard --fix",
+    "start": "node --env-file=env/.production.env build/cac.js",
+    "test": "jest --verbose"
+  },
+  "keywords": ["cac"],
+  "author": "Andres Arango",
+  "license": "ISC",
+  "eslintConfig": {
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "extends": "./node_modules/ts-standard/eslintrc.json",
+    "env": {
+      "jest": true
+    }
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/test"
+    ],
+    "testMatch": [
+      "**/test/**/*.test.ts"
+    ]
+  }
+}
+
