@@ -7,7 +7,7 @@ export class MariaDBConnector {
     console.log(process.env.DB_PORT)
     this.connectionPool = createPool({
       host: process.env.DB_HOST,
-      port: process.env.DB_PORT,
+      port: Number(process.env.DB_PORT),
       user: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
@@ -17,10 +17,11 @@ export class MariaDBConnector {
   async getConnection(): Promise<Connection> {
     try {
       const connection = await this.connectionPool.getConnection();
+      console.log("Connection works :D")
       return connection;
     } catch (error) {
       console.error("Error getting connection from pool:", error);
-      throw error; // Re-throw the error for further handling
+      throw error;
     }
   }
 
