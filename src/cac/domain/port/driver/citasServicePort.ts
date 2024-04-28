@@ -5,5 +5,5 @@ export interface CitaServicePort {
     getCitaById(id: number): Promise<Cita | null>;
     crearCita(cita: Cita): Promise<Cita>;
     actualizarCita(cita: Cita): Promise<Cita>;
-    eliminarCita(id: number): Promise<Cita>;
+    eliminarCita(id: number): Promise<Cita | null>;
   }
