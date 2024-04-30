@@ -1,5 +1,5 @@
 import { Cita } from "../../../src/cac/domain/model/cita/cita";
-import { MariaDBCitaRepository } from "../../../src/cac/infrastructure/DataBase/db_actions";
+import { MariaDBCitaRepository } from "../../../src/cac/infrastructure/DataBase/gestionCitasCAC";
 import { MariaDBConnector } from "../../../src/cac/infrastructure/DataBase/mariadb_connection";
 
 
@@ -13,7 +13,7 @@ describe('MariaDBCitaRepository', () => {
         await connection.close();
       });
     it('Crear cita', async () => {
-        // Arrange: Simular la creación correcta de una cita
+   
         const citaMock: Cita = new Cita(
             1, 
             'Juan',
@@ -28,17 +28,17 @@ describe('MariaDBCitaRepository', () => {
         );
         jest.spyOn(citaRepository, 'crearCita').mockResolvedValue(citaMock);
 
-        // Act: Llamar al método crearCita con los parámetros adecuados
+     
         const result = await citaRepository.crearCita(citaMock);
 
-        // Assert: Verificar que devuelve la cita creada correctamente
+       
         expect(result).toEqual(citaMock);
         expect(result.id).toEqual(citaMock.id);
     });
 
     
     it('Actualizar Cita', async () => {
-        // Arrange: Simular la creación correcta de una cita
+    
         const citaMock: Cita = new Cita(
             1, 
             'andrew',
@@ -63,7 +63,7 @@ describe('MariaDBCitaRepository', () => {
     });
 
     it('Eliminar Cita', async () => {
-        // Arrange: Simular la creación correcta de una cita
+     
         const citaMock: Cita = new Cita(
             1, 
             'andrew',
@@ -86,7 +86,7 @@ describe('MariaDBCitaRepository', () => {
         expect(result).not.toBeUndefined();
     });
     it('Obtener cita por id', async () => {
-        // Arrange: Simular la creación correcta de una cita
+      
         const citaMock: Cita = new Cita(
             1, 
             'andrew',
@@ -110,7 +110,7 @@ describe('MariaDBCitaRepository', () => {
     });
     
     it('Obtener citas', async () => {
-        // Arrange: Simular la creación correcta de una cita
+     
         const citaMock: Cita[] =
         [ new Cita(
             1, 

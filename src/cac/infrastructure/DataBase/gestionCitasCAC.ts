@@ -1,3 +1,4 @@
+import { Admin } from "../../domain/model/admin/admin";
 import { Cita } from "../../domain/model/cita/cita"
 import { CitaRepositoryPort } from "../../domain/port/driven/citasRepositoryPort"
 import { MariaDBConnector } from "./mariadb_connection"
@@ -50,6 +51,7 @@ export class MariaDBCitaRepository implements CitaRepositoryPort {
     }
   }
 
+
   async actualizarCita(cita: Cita): Promise<Cita> {
     try {
       const connection = await this.dbConnector.getConnection();
@@ -76,4 +78,23 @@ export class MariaDBCitaRepository implements CitaRepositoryPort {
       throw error;
     }
   }
+  async ingresarComoAdmin(id: number, password: string): Promise<Admin | null> {
+    try {
+        const connection = await this.dbConnector.getConnection();
+        const results = await connection.query("SELECT * FROM admins WHERE id = ? AND password = ?", [id, password]);
+        await this.dbConnector.close(); // Liberar la conexión de vuelta al pool
+        
+        // Si se encontró un admin con el ID y la contraseña proporcionados, devolver el primer resultado
+        if (results.length > 0) {
+            const adminData = results[0]; // Suponiendo que los datos del admin están en la primera fila del resultado// Suponiendo que tienes una clase Admin con constructor que acepta los datos del admin
+            return adminData;
+        } else {
+            return null; // Si no se encontró ningún admin, devolver null
+        }
+    } catch (error) {
+        console.error(`Error ingresando como admin con id ${id}:`, error);
+        throw error;
+    }
+}
+
 }
