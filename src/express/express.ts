@@ -1,39 +1,33 @@
-import express, {Request, Response, NextFunction} from 'express';
-import { Application } from 'express-serve-static-core';
-import path, { join } from 'path';
+import express,{ Application } from "express"
+import environment from "./config/config"
+import ExpressRouter from "./route/ExpressRouter"
 
 
-export default class cacExpress {
-  private readonly app: Application;
+export default class bookExpress{
+    private readonly app: Application
+    private readonly env: environment
 
-  constructor() {
-    this.app = express();
-    this.config();
-    // this.Routes();
-  }
-
-  //Configuración del express
-  private config(): void {
-     this.app.use('/static', express.static(join(process.cwd(), "public")))
-     this.app.set('views', path.join(__dirname, '..', 'views'));
-     this.app.set('view engine', 'ejs');
-    this.app.use(express.json())
-    this.app.use(express.urlencoded({ extended: true }));
+    constructor(private readonly expressRouter: ExpressRouter[]){
+        this.app = express()
+        this.config()
+        this.env = new environment()
+        this.routers()
     }
 
-//   private Routes(): void {
-//     this.app.use('/', router);
-//     this.app.use('/agendar', router)
-//     this.app.use('/prueba',router)
-//   }
+    config=():void=>{
+        this.app.use(express.json())
+        this.app.use(express.urlencoded({extended: true}))
+    }
+    routers=():void=>{
+        this.expressRouter.forEach(router => {
+            this.app.use(router.root, router.router)
+        })
+    }
 
-  //Puerto donde se levanta el sv
-   start = (): void => {
-    const PORT = process.env['PORT'] ?? 5000;
-    const HOST = process.env['HOST'] ?? 'localhost';
-    this.app.listen(PORT, () => {
-      console.log(`Sirve el sv en https://${HOST}:${PORT}`);
-    });
-  };
 
+    start= (): void=>{
+        this.app.listen(this.env.PORT, () => {
+            console.log(`Server is running on http://${this.env.HOST}:${this.env.PORT}`)
+        })
+    }
 }
