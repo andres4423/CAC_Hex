@@ -1,12 +1,13 @@
 import { Admin } from "../../../src/cac/domain/model/admin/admin";
 import { Cita } from "../../../src/cac/domain/model/cita/cita";
 import { MariaDBCitaRepository } from "../../../src/cac/infrastructure/DataBase/gestionCitasCAC";
-import { MariaDBConnector } from "../../../src/cac/infrastructure/DataBase/mariadb_connection";
+import { MySQLConnector } from "../../../src/cac/infrastructure/DataBase/mariadb_connection";
+
 
 
 describe('MariaDBCitaRepository', () => {
     let citaRepository: MariaDBCitaRepository;
-    let connection = new MariaDBConnector;
+    let connection = new MySQLConnector;
     beforeAll(() => {
         citaRepository = new MariaDBCitaRepository(connection);
     });

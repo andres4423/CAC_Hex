@@ -1,23 +1,27 @@
-import { Connection,  createPool } from "mariadb";
+const mysql = require('mysql');
 require('dotenv').config();
-export class MariaDBConnector {
-  private connectionPool: any;
 
+export class MySQLConnector {
+  connectionPool: any;
   constructor() {
-    console.log(process.env.DB_PORT)
-    this.connectionPool = createPool({
-      host: process.env.DB_HOST,
-      port: Number(process.env.DB_PORT),
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_NAME,
-    });
+    try {
+      this.connectionPool = mysql.createPool({
+        host: process.env.DB_HOST,
+        port: Number(process.env.DB_PORT),
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_NAME,
+      });
+    } catch (error) {
+      console.error("Error creating connection pool:", error);
+      throw error;
+    }
   }
 
-  async getConnection(): Promise<Connection> {
+  async getConnection() {
     try {
       const connection = await this.connectionPool.getConnection();
-      console.log("Connection works :D")
+      console.log("Connection works :D");
       return connection;
     } catch (error) {
       console.error("Error getting connection from pool:", error);
@@ -25,7 +29,15 @@ export class MariaDBConnector {
     }
   }
 
-  async close(): Promise<void> {
-    await this.connectionPool.end();
+  async close() {
+    try {
+      await this.connectionPool.end();
+      console.log("Connection pool closed successfully");
+    } catch (error) {
+      console.error("Error closing connection pool:", error);
+      throw error;
+    }
   }
 }
+
+
