@@ -1,18 +1,18 @@
 import { Request, Response } from 'express';
-import getcitaUseCasePort from '../../domain/port/driver/getcitaUseCasePort';
+import { ObtenerCitasUseCase } from '../../application/usecase/ObtenerCitasUsecase';
 
 
 
 export default class CitasController {
-    private citaUseCase: getcitaUseCasePort; 
+    private citaUseCase: ObtenerCitasUseCase; 
 
-    constructor(citaUseCase: getcitaUseCasePort) {
+    constructor(citaUseCase: ObtenerCitasUseCase) {
         this.citaUseCase = citaUseCase; 
     }
 
     getAllCitas = async (_req: Request, res: Response): Promise<void> => {
         try {
-            const citas = await this.citaUseCase.getCitas();
+            const citas = await this.citaUseCase.execute();
             res.status(200).json(citas);
         } catch (error) {
             console.error('Error retrieving citas:', error);

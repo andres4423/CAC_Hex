@@ -3,6 +3,9 @@ import obtenerCitaIDPort from "../../domain/port/driver/obtenerCitaIDUseCasePort
 
 
 export class ObtenerCitaPorIdUseCase {
+  getCitaById(citaId: number) {
+      throw new Error('Method not implemented.');
+  }
   private readonly citaService: obtenerCitaIDPort;
 
   constructor(citaService: obtenerCitaIDPort) {

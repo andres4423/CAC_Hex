@@ -1,16 +1,16 @@
 import { Request, Response } from 'express';
-import eliminarUseCasePort from '../../domain/port/driver/eliminarCitaUseCasePort';
+import { eliminarCitaUseCase } from '../../application/usecase/eliminarCitaUseCase';
 export default class eliminarCita{
-    private citaUseCase: eliminarUseCasePort; 
+    private citaUseCase: eliminarCitaUseCase; 
 
-    constructor(citaUseCase: eliminarUseCasePort) {
+    constructor(citaUseCase: eliminarCitaUseCase) {
         this.citaUseCase = citaUseCase; 
     }
     
     deleteCita = async (req: Request, res: Response): Promise<void> => {
         const citaId = parseInt(req.params.id);
         try {
-            await this.citaUseCase.eliminarCita(citaId);
+            await this.citaUseCase.execute(citaId);
             res.status(204).send();
         } catch (error) {
             console.error(`Error deleting cita with ID ${citaId}:`, error);

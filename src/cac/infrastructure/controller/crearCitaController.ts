@@ -1,15 +1,15 @@
 import { Request, Response } from 'express';
-import CrearCitaUseCasePort from '../../domain/port/driver/crearCitaUseCasePort';
+import { CrearCitaUseCase } from '../../application/usecase/CrearCitaUseCase';
 export default class Crearcita{
-    private citaUseCase: CrearCitaUseCasePort; 
+    private citaUseCase: CrearCitaUseCase; 
 
-    constructor(citaUseCase: CrearCitaUseCasePort) {
+    constructor(citaUseCase: CrearCitaUseCase) {
         this.citaUseCase = citaUseCase; 
     }
     createCita = async (req: Request, res: Response): Promise<void> => {
         const { data } = req.body;
         try {
-            const newCita = await this.citaUseCase.crearCita(data);
+            const newCita = await this.citaUseCase.execute(data);
             res.status(201).json(newCita);
         } catch (error) {
             console.error('Error creating cita:', error);
