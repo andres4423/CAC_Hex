@@ -1,12 +1,12 @@
 import { Admin } from "../../domain/model/admin/admin";
 import { Cita } from "../../domain/model/cita/cita"
 import { CitaRepositoryPort } from "../../domain/port/driven/citasRepositoryPort"
-import { MySQLConnector } from "./mariadb_connection";
+import { MySQLConnector } from "./mysqlDBCon";
 
 
 
 
-export class MariaDBCitaRepository implements CitaRepositoryPort {
+export class gestionCitas implements CitaRepositoryPort {
   private readonly dbConnector: MySQLConnector;
 
   constructor(dbConnector: MySQLConnector) {

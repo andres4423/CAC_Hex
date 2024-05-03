@@ -1,4 +1,4 @@
-import { MySQLConnector } from "../../../src/cac/infrastructure/DataBase/mariadb_connection";
+import { MySQLConnector } from "../../../src/cac/infrastructure/DataBase/mysqlDBCon";
 
 describe('MySQLConnector', () => {
   let dbConnector: MySQLConnector;

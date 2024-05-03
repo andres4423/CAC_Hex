@@ -1,11 +1,11 @@
 import { Cita } from "../../domain/model/cita/cita";
-import { CitaServicePort } from "../../domain/port/driver/citasServicePort";
+import getcitaUseCasePort from "../../domain/port/driver/getcitaUseCasePort";
 
 
 export class ObtenerCitasUseCase {
-  private readonly citaService: CitaServicePort;
+  private readonly citaService: getcitaUseCasePort;
 
-  constructor(citaService: CitaServicePort) {
+  constructor(citaService: getcitaUseCasePort) {
     this.citaService = citaService;
   }
 

@@ -1,7 +1,7 @@
 import { Admin } from "../../../src/cac/domain/model/admin/admin";
 import { Cita } from "../../../src/cac/domain/model/cita/cita";
 import { MariaDBCitaRepository } from "../../../src/cac/infrastructure/DataBase/gestionCitasCAC";
-import { MySQLConnector } from "../../../src/cac/infrastructure/DataBase/mariadb_connection";
+import { MySQLConnector } from "../../../src/cac/infrastructure/DataBase/mysqlDBCon";
 
 
 

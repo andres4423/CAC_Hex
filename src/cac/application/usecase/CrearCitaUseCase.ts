@@ -1,15 +1,17 @@
 import { Cita } from "../../domain/model/cita/cita";
-import { CitaServicePort } from "../../domain/port/driver/citasServicePort";
+import CrearCitaUseCasePort from "../../domain/port/driver/crearCitaUseCasePort";
+
+
 
 
 export class CrearCitaUseCase {
-  private readonly citaService: CitaServicePort;
+  private readonly crearcita: CrearCitaUseCasePort;
 
-  constructor(citaService: CitaServicePort) {
-    this.citaService = citaService;
+  constructor(crearcita: CrearCitaUseCasePort) {
+    this.crearcita = crearcita;
   }
 
   async execute(cita: Cita): Promise<Cita> {
-    return await this.citaService.crearCita(cita);
+    return await this.crearcita.crearCita(cita);
   }
 }
