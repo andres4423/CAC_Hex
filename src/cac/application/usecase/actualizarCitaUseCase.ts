@@ -1,11 +1,11 @@
 import { Cita } from "../../domain/model/cita/cita";
-import ActualizarCitaUseCasePort from "../../domain/port/driver/actualizarCitaUseCasePort";
+import { CitaService } from "../service/serviceCitas/citasService";
 
 
 export class actualizarCitaUseCase{
-    private readonly citaService: ActualizarCitaUseCasePort;
+    private readonly citaService: CitaService;
 
-    constructor(citaService: ActualizarCitaUseCasePort) {
+    constructor(citaService: CitaService) {
       this.citaService = citaService;
     }
     async execute(cita: Cita): Promise<Cita> {

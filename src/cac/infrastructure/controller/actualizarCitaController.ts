@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
-import { actualizarCitaUseCase } from '../../application/usecase/actualizarCitaUseCase';
-import { ObtenerCitaPorIdUseCase } from '../../application/usecase/ObtenerCitaID';
+import ActualizarCitaUseCasePort from '../../domain/port/driver/actualizarCitaUseCasePort';
+import obtenerCitaIDPort from '../../domain/port/driver/obtenerCitaIDUseCasePort';
 export default class actualizarCita{
-    private citaUseCase: actualizarCitaUseCase; 
-    private getCitaID: ObtenerCitaPorIdUseCase
-    constructor(citaUseCase: actualizarCitaUseCase, getCitaID: ObtenerCitaPorIdUseCase) {
+    private citaUseCase: ActualizarCitaUseCasePort; 
+    private getCitaID: obtenerCitaIDPort
+    constructor(citaUseCase: ActualizarCitaUseCasePort, getCitaID: obtenerCitaIDPort) {
         this.citaUseCase = citaUseCase; 
         this.getCitaID = getCitaID
     }
@@ -13,7 +13,7 @@ export default class actualizarCita{
         const citaId = parseInt(req.params.id);
         
         try {
-            const citaActualizada = await this.getCitaID.execute(citaId);
+            const citaActualizada = await this.getCitaID.getCitaById(citaId);
             
         
             if (!citaActualizada) {
@@ -31,7 +31,7 @@ export default class actualizarCita{
                 citaActualizada.setLugar(req.body.lugar);
             }
     
-            const updatedCita = await this.citaUseCase.execute(citaActualizada);
+            const updatedCita = await this.citaUseCase.actualizarCita(citaActualizada);
             
             res.status(200).json(updatedCita);
         } catch (error) {

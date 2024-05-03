@@ -1,13 +1,13 @@
 import { Cita } from "../../domain/model/cita/cita";
-import CrearCitaUseCasePort from "../../domain/port/driver/crearCitaUseCasePort";
+import { CitaService } from "../service/serviceCitas/citasService";
 
 
 
 
 export class CrearCitaUseCase {
-  private readonly crearcita: CrearCitaUseCasePort;
+  private readonly crearcita: CitaService;
 
-  constructor(crearcita: CrearCitaUseCasePort) {
+  constructor(crearcita: CitaService) {
     this.crearcita = crearcita;
   }
 

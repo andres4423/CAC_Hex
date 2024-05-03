@@ -19,8 +19,6 @@ export default class factoryCitas{
         const gestioncitas = new gestionCitas(conDb)
         const citasservice = new CitaService(gestioncitas)
 
-       
-
         const obtenerCitas = new ObtenerCitasUseCase(citasservice)
         const obtenerCitasID = new ObtenerCitaPorIdUseCase(citasservice)
         const crearcita = new CrearCitaUseCase(citasservice)
@@ -31,6 +29,7 @@ export default class factoryCitas{
         const crearCitaController = new Crearcita(crearcita)
         const actualizarCitaController = new actualizarCita(actualizarCita1, obtenerCitasID)
         const eliminarController = new eliminarCita(eliminarcita)
+        
         return new CitasRouter(getcitascontroller, crearCitaController, actualizarCitaController, eliminarController)
         
     }

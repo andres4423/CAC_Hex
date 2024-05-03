@@ -1,14 +1,14 @@
 import { Cita } from "../../domain/model/cita/cita";
-import obtenerCitaIDPort from "../../domain/port/driver/obtenerCitaIDUseCasePort";
+import { CitaService } from "../service/serviceCitas/citasService";
 
 
 export class ObtenerCitaPorIdUseCase {
   getCitaById(citaId: number) {
       throw new Error('Method not implemented.');
   }
-  private readonly citaService: obtenerCitaIDPort;
+  private readonly citaService: CitaService;
 
-  constructor(citaService: obtenerCitaIDPort) {
+  constructor(citaService: CitaService) {
     this.citaService = citaService;
   }
 
