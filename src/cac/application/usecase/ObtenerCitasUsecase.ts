@@ -9,7 +9,7 @@ export class ObtenerCitasUseCase {
     this.citaService = citaService;
   }
 
-  async execute(): Promise<Cita[]> {
+  async getCitas(): Promise<Cita[]> {
     return await this.citaService.getCitas();
   }
 }

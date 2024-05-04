@@ -1,4 +1,4 @@
-import { Admin } from "../../../domain/model/admin/admin";
+// import { Admin } from "../../../domain/model/admin/admin";
 import { Cita } from "../../../domain/model/cita/cita";
 import { CitaRepositoryPort } from "../../../domain/port/driven/citasRepositoryPort";
 import { CitaServicePort } from "../../../domain/port/driver/citasServicePort";
@@ -18,9 +18,9 @@ export class CitaService implements CitaServicePort {
     return await this.citaRepository.getCitaById(id);
   }
 
-  async ingresarComoAdmin(id: number, password: string ): Promise<Admin | null>{
-    return await this.citaRepository.ingresarComoAdmin(id, password)
-  }
+  // async ingresarComoAdmin(id: number, password: string ): Promise<Admin | null>{
+  //   return await this.citaRepository.ingresarComoAdmin(id, password)
+  // }
 
 async crearCita(cita: Cita): Promise<Cita> {
     const nuevaCita = new Cita(cita.id, cita.nombre, cita.direccion, cita.hora, cita.descripcion,

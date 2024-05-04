@@ -3,7 +3,7 @@ import environment from "./config/config"
 import ExpressRouter from "./route/ExpressRouter"
 
 
-export default class bookExpress{
+export default class Express{
     private readonly app: Application
     private readonly env: environment
 

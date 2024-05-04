@@ -11,7 +11,7 @@ export class CrearCitaUseCase {
     this.crearcita = crearcita;
   }
 
-  async execute(cita: Cita): Promise<Cita> {
+  async crearCita(cita: Cita): Promise<Cita> {
     return await this.crearcita.crearCita(cita);
   }
 }

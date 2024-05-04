@@ -8,7 +8,7 @@ export class actualizarCitaUseCase{
     constructor(citaService: CitaService) {
       this.citaService = citaService;
     }
-    async execute(cita: Cita): Promise<Cita> {
+    async actualizarCita(cita: Cita): Promise<Cita> {
         return await this.citaService.actualizarCita(cita);
     }
     

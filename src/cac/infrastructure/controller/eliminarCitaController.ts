@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import { eliminarCitaUseCase } from '../../application/usecase/eliminarCitaUseCase';
 import eliminarUseCasePort from '../../domain/port/driver/eliminarCitaUseCasePort';
 export default class eliminarCita{
     private citaUseCase: eliminarUseCasePort; 
