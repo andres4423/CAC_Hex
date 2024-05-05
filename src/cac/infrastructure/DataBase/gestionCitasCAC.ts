@@ -15,9 +15,12 @@ export class gestionCitas implements CitaRepositoryPort {
 
   async getCitas(): Promise<Cita[]> {
     try {
+      console.log("Trying to get connection...");
       const connection = await this.dbConnector.getConnection();
-      const results = await connection.query("SELECT * FROM registro_citas");
-      await this.dbConnector.close(); // Liberar la conexión de vuelta al pool
+      console.log("Connection established successfully!");
+      const results =  await connection.query("SELECT * FROM registro_citas");
+      console.log("Query executed successfully!");
+      await connection.release(); // Liberar la conexión de vuelta al pool
       return results;
     } catch (error) {
       console.error("Error fetching citas:", error);

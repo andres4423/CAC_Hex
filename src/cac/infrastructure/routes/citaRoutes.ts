@@ -31,7 +31,7 @@ export default class CitasRouter implements ExpressRouter {
         //this.router.get('/:id', this.citasController.getCitaById.bind(this.citasController.getCitaById));
 
         // Endpoint para crear una nueva cita
-        this.router.post('/', this.crearCitaController.createCita.bind(this.crearCitaController.createCita));
+        this.router.post('/createCita', this.crearCitaController.createCita.bind(this.crearCitaController.createCita));
 
         // Endpoint para actualizar una cita existente
         this.router.put('/:id', this.updateCita.updateCita.bind(this.updateCita.updateCita));

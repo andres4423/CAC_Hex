@@ -18,7 +18,7 @@ export class MySQLConnector {
     }
   }
 
-  async getConnection() {
+  async getConnection(): Promise<any> {
     try {
       const connection = await this.connectionPool.getConnection();
       console.log("Connection works :D");
@@ -31,7 +31,7 @@ export class MySQLConnector {
 
   async close() {
     try {
-      await this.connectionPool.end();
+      await this.connectionPool.release();
       console.log("Connection pool closed successfully");
     } catch (error) {
       console.error("Error closing connection pool:", error);
@@ -39,5 +39,6 @@ export class MySQLConnector {
     }
   }
 }
+
 
 
