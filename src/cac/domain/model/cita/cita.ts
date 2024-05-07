@@ -9,8 +9,9 @@ export  class Cita{
      public tipo_cita: number;
      public premium: number;
      public lugar: string;
+     public fecha_nacimiento: Date;
     constructor(id: number, nombre: string, direccion: string, hora:string, descripcion: string
-        , fecha: Date, celular: number, tipo_cita: number, premium: number, lugar: string
+        , fecha: Date, celular: number, tipo_cita: number, premium: number, lugar: string, fecha_nacimiento: Date
     ){
         this.id = id;
         this.nombre =nombre;
@@ -22,6 +23,7 @@ export  class Cita{
         this.tipo_cita = tipo_cita;
         this.premium = premium;
         this.lugar = lugar;
+        this.fecha_nacimiento = fecha_nacimiento
     }
     getId():number{
         return this.id;
@@ -54,6 +56,9 @@ export  class Cita{
         return this.lugar;
     }
 
+    getFechaNacimiento():Date{
+        return this.fecha_nacimiento
+    }
     setId(id:number){
         this.id = id;
     }
@@ -84,6 +89,8 @@ export  class Cita{
     setLugar(lugar:string){
         this.lugar = lugar
     }
-    
+    setFechaNacimiento(fecha_nac:Date){
+        this.fecha_nacimiento = fecha_nac
+    }
 
 }

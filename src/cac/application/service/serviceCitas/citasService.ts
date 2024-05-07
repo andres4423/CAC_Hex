@@ -24,7 +24,7 @@ export class CitaService implements CitaServicePort {
 
 async crearCita(cita: Cita): Promise<Cita> {
     const nuevaCita = new Cita(cita.id, cita.nombre, cita.direccion, cita.hora, cita.descripcion,
-      cita.fecha, cita.celular, cita.tipo_cita, cita.premium, cita.lugar);
+      cita.fecha, cita.celular, cita.tipo_cita, cita.premium, cita.lugar, cita.fecha_nacimiento);
     await this.citaRepository.crearCita(nuevaCita);
     return nuevaCita; 
   }

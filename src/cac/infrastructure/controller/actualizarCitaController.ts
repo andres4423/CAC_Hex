@@ -22,13 +22,13 @@ export default class actualizarCita{
             }
             
             if (req.body.fecha) {
-                citaActualizada.setFecha(req.body.fecha);
+                citaActualizada.fecha = req.body.fecha;
             }
             if (req.body.hora) {
-                citaActualizada.setHora(req.body.hora);
+                citaActualizada.hora = req.body.hora;
             }
             if (req.body.lugar) {
-                citaActualizada.setLugar(req.body.lugar);
+                citaActualizada.lugar = req.body.lugar;
             }
     
             const updatedCita = await this.citaUseCase.actualizarCita(citaActualizada);
