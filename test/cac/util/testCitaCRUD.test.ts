@@ -1,12 +1,11 @@
 import { Admin } from "../../../src/cac/domain/model/admin/admin";
 import { Cita } from "../../../src/cac/domain/model/cita/cita";
-import { MariaDBCitaRepository } from "../../../src/cac/infrastructure/DataBase/gestionCitasCAC";
 import { MySQLConnector } from "../../../src/cac/infrastructure/DataBase/mysqlDBCon";
 
 
 
 describe('MariaDBCitaRepository', () => {
-    let citaRepository: MariaDBCitaRepository;
+    let citaRepository: MySQLConnector;
     let connection = new MySQLConnector;
     beforeAll(() => {
         citaRepository = new MariaDBCitaRepository(connection);

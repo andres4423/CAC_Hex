@@ -6,7 +6,7 @@ import { ObtenerCitasUseCase } from "../../application/usecase/ObtenerCitasUseca
 import { actualizarCitaUseCase } from "../../application/usecase/actualizarCitaUseCase";
 import { eliminarCitaUseCase } from "../../application/usecase/eliminarCitaUseCase";
 import { gestionCitas } from "../DataBase/gestionCitasCAC";
-import { MySQLConnector } from "../DataBase/mysqlDBCon";
+
 import actualizarCita from "../controller/actualizarCitaController";
 import CitasController from "../controller/citasController";
 import Crearcita from "../controller/crearCitaController";
@@ -15,8 +15,8 @@ import CitasRouter from "../routes/citaRoutes";
 
 export default class factoryCitas{
     public createRouter = (): ExpressRouter =>{
-        const conDb = new MySQLConnector()
-        const gestioncitas = new gestionCitas(conDb)
+      
+        const gestioncitas = new gestionCitas()
         const citasservice = new CitaService(gestioncitas)
 
         const obtenerCitas = new ObtenerCitasUseCase(citasservice)
