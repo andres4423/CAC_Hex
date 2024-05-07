@@ -2,7 +2,7 @@ import { Cita } from "../../domain/model/cita/cita";
 import { CitaRepositoryPort } from "../../domain/port/driven/citasRepositoryPort";
 import { MySQLConnector } from "./mysqlDBCon";
 
-export class gestionCitas  implements CitaRepositoryPort {
+export class gestionCitas implements CitaRepositoryPort {
   private readonly dbConnector: MySQLConnector;
 
   constructor() {

@@ -91,8 +91,10 @@ echo  '
 ' > package.json
 # install dependencies
 npm i express cors morgan ejs
+npm i mysql
+
 # install development dependencies
-npm i typescript ts-node-dev ts-standard jest supertest ts-jest ts-jest-mocker @types/express @types/cors @types/morgan @types/ejs @types/jest -D
+npm i typescript ts-node-dev ts-standard jest supertest ts-jest ts-jest-mocker @types/express @types/cors @types/morgan @types/ejs @types/jest @types/mysql -D
 # init tsconfig.json
 echo '
 {
