@@ -1,4 +1,3 @@
-import { Admin } from "../../domain/model/admin/admin";
 import ingresoAdminPort from "../../domain/port/driver/ingresoAdminUseCasePort";
 import { Request, Response } from "express";
 

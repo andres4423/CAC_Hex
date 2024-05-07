@@ -1,3 +1,4 @@
+import { Admin } from "../../domain/model/admin/admin";
 import { Cita } from "../../domain/model/cita/cita";
 import { CitaRepositoryPort } from "../../domain/port/driven/citasRepositoryPort";
 import { MySQLConnector } from "./mysqlDBCon";
@@ -64,5 +65,26 @@ export class gestionCitas implements CitaRepositoryPort {
       console.error(`Error deleting cita with id ${id}:`, error);
       throw error;
     }
-  }
+  } 
+
+  async ingresarComoAdmin(id: number, password: string): Promise<Admin | null> {
+    try {
+        const results = await this.dbConnector.query("SELECT * FROM admin WHERE id = ? AND contraseña = ?", [id, password]);
+      
+        if (results.length > 0) {
+          
+            const adminData = results[0];
+           
+            const admin = new Admin(adminData.id, adminData.name, /* Otros datos */);
+            return admin;
+        } else {
+
+            return null;
+        }
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+}
+
 }
