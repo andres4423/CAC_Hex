@@ -3,9 +3,9 @@ import { Admin } from "../../../domain/model/admin/admin";
 import { Banco } from "../../../domain/model/bancos/banco";
 import { Cita } from "../../../domain/model/cita/cita";
 import { CitaRepositoryPort } from "../../../domain/port/driven/citasRepositoryPort";
-import { CitaServicePort } from "../../../domain/port/driver/citasServicePort";
 
-export class CitaService implements CitaServicePort {
+
+export class CitaService {
   private readonly citaRepository: CitaRepositoryPort;
 
   constructor(citaRepository: CitaRepositoryPort) {
