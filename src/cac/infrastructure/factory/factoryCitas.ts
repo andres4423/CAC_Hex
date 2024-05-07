@@ -8,6 +8,7 @@ import { eliminarCitaUseCase } from "../../application/usecase/eliminarCitaUseCa
 import { gestionCitas } from "../DataBase/gestionCitasCAC";
 
 import actualizarCita from "../controller/actualizarCitaController";
+import citaByIDController from "../controller/citaByIDcontroller";
 import CitasController from "../controller/citasController";
 import Crearcita from "../controller/crearCitaController";
 import eliminarCita from "../controller/eliminarCitaController";
@@ -24,13 +25,15 @@ export default class factoryCitas{
         const crearcita = new CrearCitaUseCase(citasservice)
         const actualizarCita1 = new actualizarCitaUseCase(citasservice)
         const eliminarcita = new eliminarCitaUseCase(citasservice)
+        const citaId = new ObtenerCitaPorIdUseCase(citasservice)
+
 
         const getcitascontroller = new CitasController(obtenerCitas)
         const crearCitaController = new Crearcita(crearcita)
         const actualizarCitaController = new actualizarCita(actualizarCita1, obtenerCitasID)
         const eliminarController = new eliminarCita(eliminarcita)
-        
-        return new CitasRouter(getcitascontroller, crearCitaController, actualizarCitaController, eliminarController)
+        const citaById = new citaByIDController(citaId)
+        return new CitasRouter(getcitascontroller, crearCitaController, actualizarCitaController, eliminarController, citaById)
         
     }
 }

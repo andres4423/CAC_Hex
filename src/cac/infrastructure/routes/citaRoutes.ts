@@ -4,6 +4,7 @@ import CitasController from "../controller/citasController";
 import Crearcita from "../controller/crearCitaController";
 import actualizarCita from "../controller/actualizarCitaController";
 import eliminarCita from "../controller/eliminarCitaController";
+import citaByIDController from "../controller/citaByIDcontroller";
 
 
 export default class CitasRouter implements ExpressRouter {
@@ -14,7 +15,8 @@ export default class CitasRouter implements ExpressRouter {
     constructor(private citasController: CitasController,
         private crearCitaController: Crearcita,
         private updateCita: actualizarCita,
-        private eliminarCita: eliminarCita
+        private eliminarCita: eliminarCita,
+        private citaById: citaByIDController
     ) {
         this.router = Router();
         this.root = '/citas';
@@ -28,7 +30,7 @@ export default class CitasRouter implements ExpressRouter {
         this.router.get('/', this.citasController.getAllCitas.bind(this.citasController.getAllCitas));
 
         // Endpoint para obtener una cita por su ID
-        //this.router.get('/:id', this.citasController.getCitaById.bind(this.citasController.getCitaById));
+        this.router.get('/:id', this.citaById.getCitaById.bind(this.citaById.getCitaById));
 
         // Endpoint para crear una nueva cita
         this.router.post('/createCita', this.crearCitaController.createCita.bind(this.crearCitaController.createCita));
