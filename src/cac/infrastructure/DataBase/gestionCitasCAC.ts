@@ -1,4 +1,5 @@
 import { Admin } from "../../domain/model/admin/admin";
+import { Banco } from "../../domain/model/bancos/banco";
 import { Cita } from "../../domain/model/cita/cita";
 import { CitaRepositoryPort } from "../../domain/port/driven/citasRepositoryPort";
 import { MySQLConnector } from "./mysqlDBCon";
@@ -34,8 +35,8 @@ export class gestionCitas implements CitaRepositoryPort {
   async crearCita(cita: Cita): Promise<Cita> {
     try {
       await this.dbConnector.query(
-        "INSERT INTO registro_citas (id, nombre, direccion, hora, descripcion, fecha, celular, tipo_cita, premium, lugar) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-        [cita.id, cita.nombre, cita.direccion, cita.hora, cita.descripcion, cita.fecha, cita.celular, cita.tipo_cita, cita.premium, cita.lugar]
+        "INSERT INTO registro_citas (id, nombre, direccion, hora, descripcion, fecha, celular, tipo_cita, premium, lugar, fecha_nacimiento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ? ?)",
+        [cita.id, cita.nombre, cita.direccion, cita.hora, cita.descripcion, cita.fecha, cita.celular, cita.tipo_cita, cita.premium, cita.lugar, cita.fecha_nacimiento]
       );
       return cita;
     } catch (error) {
@@ -75,7 +76,7 @@ export class gestionCitas implements CitaRepositoryPort {
           
             const adminData = results[0];
            
-            const admin = new Admin(adminData.id, adminData.name, /* Otros datos */);
+            const admin = new Admin(adminData.id, adminData.contraseña);
             return admin;
         } else {
 
@@ -87,4 +88,23 @@ export class gestionCitas implements CitaRepositoryPort {
     }
 }
 
+async ingresarBanco(id: number, password: string): Promise<Banco | null> {
+  try {
+      const results = await this.dbConnector.query("SELECT * FROM BANCO_USER WHERE id = ? AND contraseña = ?", [id, password]);
+    
+      if (results.length > 0) {
+        
+          const bancoData = results[0];
+         
+          const banco = new Banco(bancoData.id, bancoData.contraseña);
+          return banco;
+      } else {
+
+          return null;
+      }
+  } catch (error) {
+      console.error(error);
+      throw error;
+  }
+}
 }
