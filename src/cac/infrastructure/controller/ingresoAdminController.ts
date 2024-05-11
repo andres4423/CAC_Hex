@@ -9,7 +9,6 @@ export default class ingresoAdminController{
     ingresoAdm = async(req: Request, res: Response): Promise<void> => {
         try {
             const { id, password } = req.body;
-            // Verificar si el ID y la contraseña son válidos
             const admin = await this.ingresoAdmin.ingresoadmin(id, password);
             if (admin) {
                 res.status(200).json({ message: 'Ingreso exitoso' });
