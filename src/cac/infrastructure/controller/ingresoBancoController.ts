@@ -6,7 +6,7 @@ export default class ingresoBancoController{
     constructor(ingresoAdmin: ingresoBancoPort){
         this.ingresoAdmin = ingresoAdmin
     }
-    ingresoAdm = async(req: Request, res: Response): Promise<void> => {
+    ingresoBanco = async(req: Request, res: Response): Promise<void> => {
         try {
             const { id, password } = req.body;
             // Verificar si el ID y la contraseña son válidos

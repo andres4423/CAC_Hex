@@ -4,7 +4,7 @@ import { MySQLConnector } from "../../../src/cac/infrastructure/DataBase/mysqlDB
 
 
 
-describe('MariaDBCitaRepository', () => {
+describe('mysql', () => {
     let citaRepository: MySQLConnector;
     let connection = new MySQLConnector;
     beforeAll(() => {
