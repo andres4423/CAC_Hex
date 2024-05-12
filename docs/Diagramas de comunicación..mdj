@@ -33961,7 +33961,7 @@
 												"$ref": "AAAAAAGPaoFHWxAwhPw="
 											},
 											"font": "Arial;13;0",
-											"left": 32.72998046875,
+											"left": 24.72998046875,
 											"top": 109,
 											"width": 85.998046875,
 											"height": 13,
@@ -33974,7 +33974,7 @@
 												"$ref": "AAAAAAGPaoFHWxAwhPw="
 											},
 											"font": "Arial;13;1",
-											"left": 13,
+											"left": 5,
 											"top": 109,
 											"width": 13.72998046875,
 											"height": 13,
@@ -33982,7 +33982,6 @@
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 8,
 									"top": 104,
 									"width": 912,
 									"height": 592,

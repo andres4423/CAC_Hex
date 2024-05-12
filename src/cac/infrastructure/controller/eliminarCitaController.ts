@@ -8,8 +8,10 @@ export default class eliminarCita{
     }
     
     deleteCita = async (req: Request, res: Response): Promise<void> => {
+        // se extrae el id de la solicitud y se convierte en numero
         const citaId = parseInt(req.params.id);
         try {
+            
             await this.citaUseCase.eliminarCita(citaId);
             res.status(204).send();
         } catch (error) {
