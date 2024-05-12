@@ -23,7 +23,7 @@ export default class CitasRouter implements ExpressRouter {
         private ingresobanco: ingresoBancoController
     ) {
         this.router = Router();
-        this.root = '/citas';
+        this.root = '/';
         this.root = `${this.root}`;
         this.routes();
     }
@@ -31,7 +31,7 @@ export default class CitasRouter implements ExpressRouter {
 
     routes = (): void => {
         // Endpoint para obtener todas las citas
-        this.router.get('/', this.citasController.getAllCitas.bind(this.citasController.getAllCitas));
+        this.router.get('/citas', this.citasController.getAllCitas.bind(this.citasController.getAllCitas));
 
         // Endpoint para obtener una cita por su ID
         this.router.get('/:id', this.citaById.getCitaById.bind(this.citaById.getCitaById));
