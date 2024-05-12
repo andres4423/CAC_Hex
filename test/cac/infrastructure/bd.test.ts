@@ -8,19 +8,19 @@ describe('MySQLConnector', () => {
   });
 
   afterAll(async () => {
-    await dbConnector.close();
+    await dbConnector.disconnect();
   });
 
   it('debería conectar correctamente a la base de datos', async () => {
     try {
       // Act: Intenta conectar a la base de datos
-      const connection = await dbConnector.getConnection();
+      const connection = await dbConnector.connect();
 
       // Assert: Verifica si la conexión se realizó correctamente
       expect(connection).toHaveProperty('query');
 
       // Libera los recursos de la conexión después de la prueba
-      await connection.release();
+      
     } catch (error) {
       // Si se produce un error durante la conexión, falla la prueba
       console.log(`Error al conectar a la base de datos: ${error}`);

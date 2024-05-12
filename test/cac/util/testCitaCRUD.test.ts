@@ -1,17 +1,17 @@
 import { Admin } from "../../../src/cac/domain/model/admin/admin";
 import { Cita } from "../../../src/cac/domain/model/cita/cita";
+import { CitaRepositoryPort } from "../../../src/cac/domain/port/driven/citasRepositoryPort";
+import { gestionCitas } from "../../../src/cac/infrastructure/DataBase/gestionCitasCAC";
 import { MySQLConnector } from "../../../src/cac/infrastructure/DataBase/mysqlDBCon";
 
-
-
 describe('mysql', () => {
-    let citaRepository: MySQLConnector;
-    let connection = new MySQLConnector;
+    let citaRepository: CitaRepositoryPort; // Cambiado el tipo de citaRepository
+    let connection = new MySQLConnector();
     beforeAll(() => {
-        citaRepository = new MariaDBCitaRepository(connection);
+        citaRepository = new gestionCitas(); // Usar la implementación de la clase gestionCitas
     });
     afterAll(async () => {
-        await connection.close();
+        await connection.disconnect();
     });
 
     it('Crear cita', async () => {
@@ -26,7 +26,8 @@ describe('mysql', () => {
             1234567890, 
             1, 
             0, 
-            'Hospital Central'  
+            'Hospital Central',
+            new Date('2003-01-04')  
         );
         jest.spyOn(citaRepository, 'crearCita').mockResolvedValue(citaMock);
 
@@ -44,13 +45,14 @@ describe('mysql', () => {
             1, 
             'Juan',
             'Calle 123', 
-            '10:00', 
+            '12:00', 
             'Consulta médica', 
             new Date('2024-05-01'), 
             1234567890, 
             1, 
             0, 
-            'Hospital al'  
+            'Hospital aaaaaaaaaaa',
+            new Date('2003-01-04') 
         );
 
         // Simular el comportamiento del método actualizarCita con el mock de cita
@@ -66,7 +68,7 @@ describe('mysql', () => {
     });
    
     it('Eliminar cita', async () => {
-        // Simular el comportamiento del método eliminarCita con el mock de cita
+        // Arrange: Crear una cita de ejemplo
         const citaMock: Cita = new Cita(
             1, 
             'Juan',
@@ -77,7 +79,8 @@ describe('mysql', () => {
             1234567890, 
             1, 
             0, 
-            'Hospital al'  
+            'Hospital Central',
+            new Date('2003-01-04') 
         );
         jest.spyOn(citaRepository, 'eliminarCita').mockResolvedValue(citaMock);
 
@@ -89,25 +92,24 @@ describe('mysql', () => {
     });
 
     it('Ingresar como admin', async () => {
+        // Arrange: Definir las credenciales de administrador
         const idAdmin = 1;
         const passwordAdmin = 'password123';
 
-        const adminMock: Admin= new Admin(
-            1,
-         'password123'
-        );
+        // Crear un mock de Admin para simular el resultado
+        const adminMock: Admin = new Admin(1, 'password123');
         jest.spyOn(citaRepository, 'ingresarComoAdmin').mockResolvedValue(adminMock);
 
-      
+        // Act: Llamar al método ingresarComoAdmin con las credenciales
         const result = await citaRepository.ingresarComoAdmin(idAdmin, passwordAdmin);
 
-      
+        // Assert: Verificar que el resultado no sea indefinido y sea igual al mock de Admin
         expect(result).toBeDefined();
-        expect(result).toEqual(adminMock)
+        expect(result).toEqual(adminMock);
     });
 
     it('Obtener todas las citas', async () => {
-        // Simular el comportamiento del método getCitas con el mock de citas
+        // Arrange: Simular el comportamiento del método getCitas con el mock de citas
         const citasMock: Cita[] = [
             new Cita(
                 1, 
@@ -119,7 +121,8 @@ describe('mysql', () => {
                 1234567890, 
                 1, 
                 0, 
-                'Hospital al'  
+                'Hospital Central',
+                new Date('2003-01-04')  
             )
         ];
         jest.spyOn(citaRepository, 'getCitas').mockResolvedValue(citasMock);
@@ -136,7 +139,7 @@ describe('mysql', () => {
         // Arrange: Definir el ID de la cita
         const citaId = 1;
 
-       
+        // Crear un mock de cita para simular el resultado
         const citaMock: Cita = new Cita(
             1, 
             'Juan',
@@ -147,18 +150,16 @@ describe('mysql', () => {
             1234567890, 
             1, 
             0, 
-            'Hospital al'  
+            'Hospital Central',
+            new Date('2003-01-04') 
         );
         jest.spyOn(citaRepository, 'getCitaById').mockResolvedValue(citaMock);
+
+        // Act: Llamar al método getCitaById con el ID de la cita
         const result = await citaRepository.getCitaById(citaId);
 
-
+        // Assert: Verificar que el resultado no sea indefinido y sea igual al mock de cita
         expect(result).toBeDefined();
-        if (result !== null) {
-            expect(result.id).toEqual(citaId); 
-        } else {
-            // Si result es null, verificar que sea null
-            expect(result).toBeNull();
-        }
+        expect(result).toEqual(citaMock); 
     });
 });
