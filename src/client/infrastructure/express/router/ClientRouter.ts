@@ -9,7 +9,7 @@ export default class ClientRouter implements ExpressRouter {
 
     constructor(private readonly clientController: ClientController) {
         this.router = Router();
-        this.root = '';
+        this.root = '/';
         this.routes()
     }
     routes = (): void =>{
