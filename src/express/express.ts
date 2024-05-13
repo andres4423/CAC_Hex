@@ -17,7 +17,11 @@ export default class Express{
     config=():void=>{
         this.app.use(express.json())
         this.app.use(express.urlencoded({extended: true}))
-        this.app.use(express.static(path.join(__dirname, '../frontend')));
+        // this.app.use(express.static(path.join(__dirname, '../frontend/views')));
+        // this.app.use('/static', express.static(join(process.cwd(), "frontend")))
+        this.app.set('views', path.join(__dirname,'../frontend/views' ));
+        this.app.use('/static', express.static(path.join(__dirname, '../frontend/assets')));
+        this.app.set('view engine', 'ejs');
     }
     routers=():void=>{
         this.expressRouter.forEach(router => {

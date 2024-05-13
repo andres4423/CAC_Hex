@@ -14,6 +14,7 @@ export default class Crearcita{
             // se crea la nueva cita, llamando al metodo crearCita y pasandole los datos
             const newCita = await this.citaUseCase.crearCita(data);
             res.status(201).json(newCita);
+            alert("Cita registrada exitosamente")
 
         } catch (error) {
             

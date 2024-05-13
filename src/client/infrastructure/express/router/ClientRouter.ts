@@ -13,6 +13,7 @@ export default class ClientRouter implements ExpressRouter {
         this.routes()
     }
     routes = (): void =>{
+        ///renderizar pag principal
         this.router.get('/', this.clientController.index.bind(this.clientController.index))
     }
 
