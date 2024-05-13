@@ -1,0 +1,112 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
+
+body{
+  font-family: 'Kantumruy Pro';
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Main */
+.mainPage{
+  border: 1px solid #114340;
+  margin: 45px 120px 0 130px;
+  display: flex;
+  height: 70vh;
+  box-shadow: 2px 4px 3px 2px rgba(75, 74, 74, 0.35);
+}
+
+.imagen_promo img{
+  height: 100%;
+  width: 100%;
+}
+.promo_sec{
+margin-top: 20px;
+position: relative;
+padding-left: 20px;
+justify-content: space-between;
+}
+.promo_sec h1{
+  font-size: 50px;
+  margin-bottom: 20px;
+  text-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3);
+  Text-shadow: offsetX offsetY blurRadius color
+}
+.promo_sec p{
+  font-size: 35px;
+  margin-top: 6%;
+font-weight: bold;
+}
+.button_promo{
+  justify-content: center;
+}
+.button_promo a{
+  margin-left: 20%;
+}
+.button_promo button{
+  width: 280px;
+  margin-top: 13%;
+  margin-left: 2%;
+  height: 5vh;
+  font-size: 25px;
+  color: white;
+  background-color: #114340;
+  border: 1px solid black;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.footer_principal{
+  margin-top: 80px;
+  background-color: #114340;
+  color: white;
+  display: flex;
+  gap: 10em;
+  padding-bottom: 10px;
+  flex-wrap: wrap;
+}
+.contactanos{
+  margin-left: 30px;
+  margin-top: 10px;
+}
+.contactanos h2{
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+.contactanos ul{
+  list-style: none;
+}
+.contactanos ul li{
+  font-size: 23px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.ubicados{
+  margin-left: 30px;
+  margin-top: 10px;
+}
+.ubicados h2{
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+.ubicados ul{
+  list-style: none;
+}
+.ubicados ul li{
+  font-size: 17px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.ubicados ul .sede{
+  border-bottom: 1px solid white;
+  font-size: 26px;
+}
+
+.footer_principal .footer_title{
+  font-size: 75px;
+  margin-top: 40px;
+}
