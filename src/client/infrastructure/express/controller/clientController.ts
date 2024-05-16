@@ -3,6 +3,6 @@ import path from 'path'
 
 export default class ClientController {
   index = (_req: Request, res: Response) => {
-    res.sendFile(path.join(__dirname, '../frontend/views/principal'))
+    res.sendFile(path.join(__dirname, '../frontend/views/principal.ejs'))
   }
 }
