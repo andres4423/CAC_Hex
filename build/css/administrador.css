@@ -1,0 +1,51 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
+
+body{
+  font-family: 'Kantumruy Pro';
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+
+/* Parte panel */
+
+/* title */
+.admin_title{
+  text-align: center;
+  margin-top: 30px;
+  font-size: 30px;
+}
+
+.choose_of{
+  margin: 20px 0 10px 20%;
+  font-size: 32px;
+  font-weight: bold;
+}
+.choose_of select{
+  height: 5vh;
+  font-size: 20px;
+  background-color: #D9D9D9;
+  color: black;
+  font-weight: bold;
+}
+
+/* Tabla */
+.tabla_reporte{
+ font-size: 30px;
+  margin: 30px 0 10px 15%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.tabla_reporte th,td{
+  border: 1px solid black;
+  padding: 20px;
+  text-align: center;
+}
+
+th {
+  font-weight: bold;
+  background-color: #D9D9D9;
+}

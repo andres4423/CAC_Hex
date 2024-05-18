@@ -1,0 +1,210 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
+
+body{
+  font-family: 'Kantumruy Pro';
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+
+/* Barra Navegación */
+header{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #114340;
+}
+
+header h1{
+background-color: #114340;
+text-align: center;
+padding-top: 6px;
+font-size: 36px;
+padding-left: 10px;
+color: white;
+}
+
+/* Opciones */
+.opciones{
+  display: flex;
+  list-style: none;
+  padding-top: 9px;
+  padding-bottom: 10px;
+  gap:2em;
+  margin-right: 20px;
+}
+
+.opciones li{
+  display: inline-block;
+  padding-top: 5px;
+}
+.opciones li a img{
+height: 35px;
+margin-right: 35px;
+}
+.opciones li a{
+  text-decoration: none;
+  color: white;
+font-size: 25px;
+}
+/* Botón pa desplegar */
+.abrir-btn{
+  display: none;
+}
+/* Titulo Agendar citas */
+
+.title{
+  text-align: center;
+  font-size: 25px;
+  margin-top: 10px;
+}
+/* Estilos container */
+.container_form{
+width: 50%;
+margin-left: 25%;
+margin-right: 20%;
+margin-top: 12px;
+background-color: #114340;
+overflow: hidden;
+border-radius: 8px;
+display: flex;
+flex-wrap: wrap;
+margin-bottom: 20px;
+}
+/* Estilos contenido del form */
+.contenido{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 10px;
+  color: white;
+  margin-left: 20px;
+}
+/* Estilos caja de input */
+.box{
+display: flex;
+flex-wrap: wrap;
+width: 50%;
+padding-bottom: 10px;
+}
+
+.box label{
+width: 10em;
+font-weight: bold;
+margin: 5px 0;
+font-size: 23px;
+text-align: center;
+margin-left: 8%;
+border: none;
+font-weight: bold;
+}
+/* Estilos para los diferentes inputs */
+.box input{
+height: 25px;
+width: 56%;
+padding: 0 10px;
+outline: none;
+margin-left: 40px;
+border-radius: 7px;
+border: 1px solid black;
+}
+.box select{
+  height: 28px;
+width: 62%;
+padding: 0 10px;
+margin-left: 40px;
+border-radius: 7px;
+border: 1px solid black;
+}
+
+.box textarea{
+  height: 40px;
+  width: 56%;
+  padding: 0 10px;
+  margin-left: 40px;
+  border-radius: 7px;
+  border: 1px solid black;
+}
+.box input[type=date]{
+  height: 30px;
+  width: 57%;
+  border: 1px solid black;}
+/* Estilos para los inputs de enviar/restablecer */
+.enviar_inputs{
+text-align: center;
+margin-top: 12px;
+padding-bottom: 10px;
+}
+.enviar_inputs input{
+  width: 140px;
+  margin-left: 10px;
+  height: 27px;
+  font-size: 15px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: bold;
+
+}
+@media screen and (max-width: 768px) {
+  .Hbar h1 {
+    font-size: 24px;
+   }
+
+  .opciones {
+    margin-left: 1em;
+     flex-wrap: wrap;
+    }
+
+  .opciones li {
+    margin-left: 0.5em;
+  }
+
+  .opciones li a {
+    font-size: 18px;
+  }
+
+}
+
+@media screen and (max-width: 818px) {
+  #navbar {
+    position: absolute;
+    top: 8.7%;
+    right: 0;
+    background-color: #114340;
+    padding: 1.2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-right: 0;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2;
+  }
+  .abrir-btn {
+    display: block;
+    height: 5vh;
+    margin-right: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    z-index: 2;
+  }
+  .opciones {
+    flex-direction: column;
+    align-items: end;
+    color: black;
+  }
+  .opciones li{
+    margin-top: 10px;
+  }
+
+  #navbar.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+}

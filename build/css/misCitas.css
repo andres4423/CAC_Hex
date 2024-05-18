@@ -1,0 +1,182 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
+
+body{
+  font-family: 'Kantumruy Pro';
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/* Barra Navegación */
+header{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #114340;
+}
+
+header h1{
+background-color: #114340;
+text-align: center;
+padding-top: 6px;
+font-size: 36px;
+padding-left: 10px;
+color: white;
+}
+
+/* Opciones */
+.opciones{
+  display: flex;
+  list-style: none;
+  padding-top: 9px;
+  padding-bottom: 10px;
+  gap:2em;
+  margin-right: 20px;
+}
+
+.opciones li{
+  display: inline-block;
+  padding-top: 5px;
+}
+.opciones li a img{
+height: 35px;
+margin-right: 35px;
+}
+.opciones li a{
+  text-decoration: none;
+  color: white;
+font-size: 25px;
+}
+/* Botón pa desplegar */
+.abrir-btn{
+  display: none;
+}
+
+
+/* Apartado de mis citas */
+
+.title h1{
+  text-align: center;
+  font-size: 64px;
+  margin-top: 0.65em;
+}
+
+/* Contenedor_citas */
+.container_citas{
+/* border: 2px solid black; */
+width: 60em;
+margin-left: 11.5em;
+margin-right: 10em;
+height: 40vh;
+margin-top: 2em;
+display: flex;
+}
+/* Info cita */
+.cambiar{
+margin-left: 10%;
+font-size: 35px;
+background-color: #114340;
+font-weight: bold;
+padding: 10px 80px 10px 80px;
+margin-bottom: 20px;  
+margin-top: 5%;
+cursor: pointer;
+border-radius: 10px;
+}
+.Cancelar{
+  margin-left: 5%;
+font-size: 35px;
+background-color: #114340;
+font-weight: bold;
+padding: 10px 80px 10px 80px;
+margin-bottom: 20px;  
+margin-top: 5%;
+cursor: pointer;
+border-radius: 10px;
+}
+.cambiar p{
+  margin-top: 20%;
+}
+.Cancelar p{
+  margin-top: 20%;
+}
+.cambiar a, .Cancelar a{
+  color: white;
+  text-decoration: none;
+}
+
+
+
+@media screen and (max-width:1000px){
+  .ticket h1{
+    font-size: 50px;
+  }
+  .ticket p{
+    font-size: 60px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .Hbar h1 {
+    font-size: 24px;
+   }
+
+  .opciones {
+    margin-left: 1em;
+     flex-wrap: wrap;
+    }
+
+  .opciones li {
+    margin-left: 0.5em;
+  }
+
+  .opciones li a {
+    font-size: 18px;
+  }
+
+}
+
+@media screen and (max-width: 818px) {
+  #navbar {
+    position: absolute;
+    top: 6%;
+    right: 0;
+    background-color: #114340;
+    padding: 1.2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-right: 0;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2;
+  }
+  .abrir-btn {
+    display: block;
+    height: 5vh;
+    margin-right: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    z-index: 2;
+  }
+  .opciones {
+    flex-direction: column;
+    align-items: end;
+    color: black;
+  }
+  .opciones li{
+    margin-top: 10px;
+  }
+
+  #navbar.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+}
+

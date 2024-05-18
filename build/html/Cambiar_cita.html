@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambiar Citas</title>
+  <link rel="stylesheet" href="../css/cambiar_cita.css">
+</head>
+<body>
+
+  <!-- Barra superior template -->
+  <!-- Header -->
+  <header>
+    <h1><em>CAC.com</em></h1>
+    <!-- Barra de navegación -->
+    <img src="../img/hamburguer_menu.svg" class="abrir-btn" alt="">
+    <nav class="" id="navbar">
+      <ul class="opciones">
+        <li><a href="#">Agendar Cita</a></li>
+        <li><a href="#">Panel Citas</a></li>
+        <li><a href="#">Tickets</a></li>
+        <li><a href="#">Bancos</a></li>
+        <li><a href="#">Administración</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+<!-- Apartado cambiar cita-->
+
+<div class="container-buscar">
+  <h1>Cambiar cita</h1>
+<div class="form_container">
+  <!-- Formulario cambiar de cita -->
+<form action="#">
+
+  <label for="identificacion" class="label_motivo">Identificacion</label>
+  <input type="number" name="identificacion" id="identificacion" placeholder="Identificacion" required>
+
+  <!-- Fecha de cambio -->
+  <label for="fecha" class="label_motivo">Fecha</label><br>
+<input type="date" name="fecha" id="fecha">
+<!-- Hora de cambio -->
+  <label for="hora" class="hora">Hora</label>
+  <input type="time" name="hora" id="hora">
+  <!-- Lugar/oficina de cambio -->
+  <label for="lugar" class="label_lugar">Lugar</label>
+  <select name="lugar" id="lugar">
+    <option value="" disabled selected>Seleccione la oficina</option>
+    <option value="Bucaramanga">Oficina Bucaramanga</option>
+    <option value="Bogotá">Oficina Bogotá</option>
+  </select>
+
+  <input type="submit" name="" id="enviar_form" value="Cambiar Cita">
+</form>
+</div>
+</div>
+
+</body>
+</html>

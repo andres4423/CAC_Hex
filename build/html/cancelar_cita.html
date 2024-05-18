@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cancelar Citas</title>
+  <link rel="stylesheet" href="../css/cancelar_cita.css">
+</head>
+<body>
+
+  <!-- Barra superior template -->
+  <!-- Header -->
+  <header>
+    <h1><em>CAC.com</em></h1>
+    <!-- Barra de navegación -->
+    <img src="../img/hamburguer_menu.svg" class="abrir-btn" alt="">
+    <nav class="" id="navbar">
+      <ul class="opciones">
+        <li><a href="#">Agendar Cita</a></li>
+        <li><a href="#">Panel Citas</a></li>
+        <li><a href="#">Tickets</a></li>
+        <li><a href="#">Bancos</a></li>
+        <li><a href="#">Administración</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+<!-- Apartado cancelar cita-->
+<div class="container-buscar">
+  <h1>Cancelar cita</h1>
+<div class="form_container">
+  <!-- Formulario cancelación de cita -->
+<form action="#">
+  <label for="identificacion" class="label_motivo">Identificacion</label>
+  <input type="number" name="identificacion" id="identificacion" placeholder="Identificacion" required>
+
+  <label for="motivos" class="label_motivo">Motivo</label><br>
+  <!-- Seleccion de motivos -->
+  <select name="motivos" id="motivos" required>
+    <option disabled selected>Seleccione el motivo</option>
+    <option value="No asistencia">No puedo asistir</option>
+    <option value="conflicto_horario">Conflicto de horario</option>
+    <option value="Lugar equivocado">Lugar equivocado</option>
+    <option value="calamidad">Calamidad</option>
+  </select>
+  <label for="otro_motivos" class="otros">Otros motivos</label>
+  <textarea name="otrosMotivos" id="otrosMotivos" cols="35" rows="5"></textarea>
+  <input type="submit" name="" id="enviar_form" value="Cancelar Cita">
+</form>
+</div>
+</div>
+
+</body>
+</html>

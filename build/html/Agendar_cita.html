@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agendar cita CAC</title>
+    <link rel="stylesheet" href="../css/Agendar_cita.css" />
+  </head>
+  <body>
+    <!-- Barra superior template -->
+    <!-- Header -->
+    <header>
+      <h1><em>CAC.com</em></h1>
+      <!-- Barra de navegación -->
+      <img src="../img/hamburguer_menu.svg" class="abrir-btn" alt="">
+      <nav class="" id="navbar">
+        <ul class="opciones">
+          <li><a href="#">Agendar Cita</a></li>
+          <li><a href="#">Panel Citas</a></li>
+          <li><a href="#">Tickets</a></li>
+          <li><a href="#">Bancos</a></li>
+          <li><a href="#">Administración</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Agendar cita titulo -->
+    <div class="title">
+      <h1>Agenda tu cita</h1>
+    </div>
+    <div class="container_form">
+      <!-- Formulario de agendamiento -->
+      <form action="/agendar" method="POST">
+        <div class="contenido">
+          <div class="box">
+            <label for="id">Identificación</label>
+            <input type="number" name="id" id="id" required/>
+          </div>
+          <!-- Input Nombre -->
+          <div class="box">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" name="nombre" id="nombre" required/>
+          </div>
+
+          <!-- Input Dirección -->
+          <div class="box">
+            <label for="dir">Dirección</label>
+            <input type="text" name="dir" id="dir" />
+          </div>
+          <!-- Seleccionar cita -->
+          <div class="box">
+            <label for="tipoCita">Tipo de cita</label>
+            <select name="tipoCita" id="tipoCita">
+              <option value="1">Devolución</option>
+              <option value="2">Reclamo</option>
+              <option value="3">Asesoria</option>
+            </select>
+          </div>
+          <!-- Input Hora -->
+          <div class="box">
+            <label for="hora">Hora</label>
+            <input type="time" name="hora" id="hora" required/>
+          </div>
+          <!-- Seleccionar lugar de cita -->
+          <div class="box">
+            <label for="lugarCita">Lugar</label>
+            <select name="lugarCita" id="lugarCita"required>
+              <option value="Bucaramanga">Oficina Bucaramanga</option>
+              <option value="Bogotá">Oficina Bogotá</option>
+            </select>
+          </div>
+          <!-- Input Edad -->
+          <div class="box">
+            <label for="f_nacimiento">Fecha Nacimiento</label>
+            <input type="date" name="f_nacimiento" id="f_nacimiento" required/>
+          </div>
+          <!-- Input Fecha -->
+          <div class="box">
+            <label for="fecha">Fecha Cita</label>
+            <input type="date" name="fecha" id="fecha" required/>
+          </div>
+          <!-- Input descripción -->
+          <div class="box">
+            <label for="descripcion">Descripción</label>
+            <textarea
+              name="descripcion"
+              id="descripcion"
+              cols="20"
+              rows="2" required
+            ></textarea>
+          </div>
+           <!-- Input contacto -->
+          <div class="box">
+            <label for="contacto">Celular</label>
+            <input type="number" name="contacto" id="contacto" required/>
+          </div>
+
+        </div>
+        <div class="enviar_inputs">
+        <input type="submit" name="enviar" id="enviarCita" value="Agendar Cita">
+        <input type="reset" name="reset" id="reset">
+      </div>
+      </form>
+    </div>
+  </body>
+</html>
