@@ -93,7 +93,8 @@ export class gestionCitas implements CitaRepositoryPort {
         console.error(error);
         throw error;
     }
-}
+} 
+//
 
 async ingresarBanco(id: number, password: string): Promise<Banco | null> {
   try {
