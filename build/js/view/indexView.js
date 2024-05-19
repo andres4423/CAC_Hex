@@ -1,4 +1,6 @@
-const routes: {[key:string]:string} ={
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const routes = {
     '/': `  <div class="mainPage">
     <div class="imagen_promo">
       <img src="../img/promoIMG.png" alt="">
@@ -119,9 +121,5 @@ const routes: {[key:string]:string} ={
     </div>
     </div>
     `,
-    
-
-
-}
-
-export default routes;
+};
+exports.default = routes;
