@@ -96,7 +96,7 @@ export class gestionCitas implements CitaRepositoryPort {
 } 
 //
 
-async ingresarBanco(id: number, password: string): Promise<Banco | null> {
+async ingresoBanco(id: number, password: string): Promise<Banco | null> {
   try {
       // Consulta para verificar las credenciales de un banco en la base de datos
       const results = await this.dbConnector.query("SELECT * FROM BANCO_USER WHERE id = ? AND contraseña = ?", [id, password]);

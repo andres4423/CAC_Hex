@@ -1,8 +1,9 @@
 import { Banco } from "../../domain/model/bancos/banco";
+import ingresoBancoPort from "../../domain/port/driver/ingresoBancoUseCasePort";
 import { CitaService } from "../service/serviceCitas/citasService";
 
 
-export class IngresoBancoUseCase {
+export class IngresoBancoUseCase implements ingresoBancoPort{
   ingresoAdmin() {
       throw new Error('Method not implemented.');
   }
@@ -13,6 +14,6 @@ export class IngresoBancoUseCase {
   }
 
   async ingresobanco(id: number, password:string): Promise<Banco | null> {
-    return await this.citaService.ingresobanco(id, password);
+    return await this.citaService.ingresoBanco(id, password);
   }
 }

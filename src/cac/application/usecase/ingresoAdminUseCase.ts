@@ -1,8 +1,9 @@
 import { Admin } from "../../domain/model/admin/admin";
+import ingresoAdminPort from "../../domain/port/driver/ingresoAdminUseCasePort";
 import { CitaService } from "../service/serviceCitas/citasService";
 
 
-export class IngresoAdminUseCase {
+export class IngresoAdminUseCase implements ingresoAdminPort{
   ingresoAdmin() {
       throw new Error('Method not implemented.');
   }

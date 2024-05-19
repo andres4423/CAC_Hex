@@ -2,7 +2,7 @@
 import { Admin } from "../../model/admin/admin"; 
 import { Banco } from "../../model/bancos/banco"; 
 import { Cita } from "../../model/cita/cita"; 
-export interface CitaRepositoryPort {
+export interface CitaServicePort {
     //  obtener todas las citas
     getCitas(): Promise<Cita[]>;
    

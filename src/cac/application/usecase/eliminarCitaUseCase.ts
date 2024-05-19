@@ -1,8 +1,9 @@
 import { Cita } from "../../domain/model/cita/cita";
+import eliminarCitaUseCasePort from "../../domain/port/driver/eliminarCitaUseCasePort";
 import { CitaService } from "../service/serviceCitas/citasService";
 
 
-export class eliminarCitaUseCase {
+export class eliminarCitaUseCase implements eliminarCitaUseCasePort{
   private readonly citaService: CitaService;
 
   constructor(citaService: CitaService) {

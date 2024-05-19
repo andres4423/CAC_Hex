@@ -3,9 +3,10 @@ import { Admin } from "../../../domain/model/admin/admin";
 import { Banco } from "../../../domain/model/bancos/banco";
 import { Cita } from "../../../domain/model/cita/cita";
 import { CitaRepositoryPort } from "../../../domain/port/driven/citasRepositoryPort";
+import { CitaServicePort } from "../../../domain/port/driver/citasServicePort";
 
 
-export class CitaService {
+export class CitaService implements CitaServicePort{
   // Inyecta el repositorio de citas
   private readonly citaRepository: CitaRepositoryPort;
 
@@ -30,8 +31,8 @@ export class CitaService {
   }
 
   //  ingresar como usuario del banco
-  async ingresobanco(id: number, password: string): Promise<Banco | null> {
-    return await this.citaRepository.ingresarBanco(id, password);
+  async ingresoBanco(id: number, password: string): Promise<Banco | null> {
+    return await this.citaRepository.ingresoBanco(id, password);
   }
 
   //  crear una nueva cita
