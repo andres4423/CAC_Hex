@@ -1,6 +1,4 @@
 import routes from "./view/indexView.js";
-
-
 function router(): void {
     const path: string = window.location.hash.slice(1)  || '/';
     const main: HTMLElement | null = document.getElementById('main');
